@@ -7,7 +7,7 @@ class UserRepo implements IUserRepo {
     private readonly url: string;
 
     constructor(){ 
-        this.url = "http://localhost:5000/api/users/";
+        this.url = process.env.NEXT_PUBLIC_API_URL + "users/";
     }
 
     async getAll(): Promise<Response<User[]>> {

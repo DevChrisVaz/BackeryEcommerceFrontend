@@ -10,6 +10,7 @@ specifiers:
   eslint: 8.36.0
   eslint-config-next: 13.2.4
   next: 13.2.4
+  next-env: ^1.1.1
   next-redux-wrapper: ^8.1.0
   numeral: ^2.0.6
   react: 18.2.0
@@ -31,6 +32,7 @@ dependencies:
   eslint: 8.36.0
   eslint-config-next: 13.2.4_j4766f7ecgqbon3u7zlxn5zszu
   next: 13.2.4_dpxg4zawgzznnxdt7it3f5d76m
+  next-env: 1.1.1_next@13.2.4
   next-redux-wrapper: 8.1.0_tkvsu76c7rlbwbwuszet747gf4
   numeral: 2.0.6
   react: 18.2.0
@@ -1733,6 +1735,14 @@ packages:
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+    dev: false
+
+  /next-env/1.1.1_next@13.2.4:
+    resolution: {integrity: sha512-uZo/u0GhmkUaSg4Dcx39QsEGRFw2eianNsdzdm/9Bd4bTAfzDH/D6y0WyB34sESZ5hXPctHg3t3Q3U99QAMc1w==}
+    peerDependencies:
+      next: '>= 5.1.0'
+    dependencies:
+      next: 13.2.4_dpxg4zawgzznnxdt7it3f5d76m
     dev: false
 
   /next-redux-wrapper/8.1.0_tkvsu76c7rlbwbwuszet747gf4:

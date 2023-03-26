@@ -7,7 +7,7 @@ class IngredientRepo implements IIngredientRepo {
     private readonly url: string;
 
     constructor(){ 
-        this.url = "http://localhost:5000/api/ingredients/";
+        this.url = process.env.NEXT_PUBLIC_API_URL + "ingredients/";
     }
 
     async getAll(): Promise<Response<Ingredient[]>> {

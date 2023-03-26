@@ -7,7 +7,7 @@ class ProductRepo implements IProductRepo {
     private readonly url: string;
 
     constructor(){ 
-        this.url = "http://localhost:5000/api/products/";
+        this.url = process.env.NEXT_PUBLIC_API_URL + "products/";
     }
 
     async getAll(): Promise<Response<Product[]>> {

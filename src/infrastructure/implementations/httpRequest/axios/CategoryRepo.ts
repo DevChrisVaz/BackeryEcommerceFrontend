@@ -7,7 +7,7 @@ class CategoryRepo implements ICategoryRepo {
     private readonly url: string;
 
     constructor(){ 
-        this.url = "http://localhost:5000/api/categories/";
+        this.url = process.env.NEXT_PUBLIC_API_URL + "categories/";
     }
 
     async getAll(): Promise<Response<Category[]>> {
