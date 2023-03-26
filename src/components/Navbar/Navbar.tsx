@@ -1,4 +1,5 @@
 import { selectCartState } from '@/features/slices/cartSlice';
+import Image from 'next/image';
 import Link from 'next/link';
 import numeral from 'numeral';
 import React, { useEffect, useState } from 'react';
@@ -48,15 +49,15 @@ const Navbar: React.FC<NavbarProps> = () => {
 									</ul>
 								</div>
 								<div className="header__logo">
-									<Link href="/"><img src="img/logos/logo-deleite-cafe_oscuro.png" alt="" /></Link>
+									<Link href="/"><Image src="img/logos/logo-deleite-cafe_oscuro.png" alt="" /></Link>
 								</div>
 								<div className="header__top__right">
 									<div className="header__top__right__links">
 										{/* <a href="#" className="search-switch"><img src="img/icon/search.png" alt="" /></a> */}
-										<Link href="/wish-list"><img src="img/icon/heart.png" alt="" /></Link>
+										<Link href="/wish-list"><Image src="img/icon/heart.png" alt="" /></Link>
 									</div>
 									<div className="header__top__right__cart">
-										<Link href="/cart"><img src="img/icon/cart.png" alt="" /> <span>{totalItems}</span></Link>
+										<Link href="/cart"><Image src="img/icon/cart.png" alt="" /> <span>{totalItems}</span></Link>
 										<div className="cart__price">Total: <span>{numeral(cartTotal).format("$0,0.00")}</span></div>
 									</div>
 								</div>

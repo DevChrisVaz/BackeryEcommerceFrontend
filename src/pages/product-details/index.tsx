@@ -10,6 +10,7 @@ import IncreaseProductViewsUseCase from '@/application/usecases/product/Increase
 import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, decreaseProductQty, increaseProductQty, removeItem, selectCartState } from '@/features/slices/cartSlice';
+import Image from 'next/image';
 export interface ProductDetailsProps { }
 
 // function getServerSideProps(context: any) {
@@ -74,7 +75,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 
 	useEffect(() => {
 		getProduct();
-	}, [id]);
+	}, [id, getProduct]);
 
 	return loading ? <span>Loading...</span> : (
 		<>
@@ -106,14 +107,14 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 							<div className="col-lg-6">
 								<div className="product__details__img">
 									<div className="product__details__big__img" ref={bigImgRef}>
-										<img className="big_img" src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + product?.images[0]} alt="" />
+										<Image className="big_img" src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + product?.images[0]} alt="" />
 									</div>
 									<div className="product__details__thumb">
 										{
 											product?.images.length > 0 &&
 											product?.images.map((image: string, index: number) => (
 												<div key={index} className="pt__item active">
-													<img data-imgbigurl={process.env.NEXT_PUBLIC_API_URL_PUBLIC + image}
+													<Image data-imgbigurl={process.env.NEXT_PUBLIC_API_URL_PUBLIC + image}
 														src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + image} alt="" />
 												</div>
 											))

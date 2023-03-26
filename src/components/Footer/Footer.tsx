@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 export interface FooterProps { }
@@ -20,7 +21,7 @@ const Footer: React.FC<FooterProps> = () => {
 					<div className="col-lg-4 col-md-6 col-sm-6">
 						<div className="footer__about">
 							<div className="footer__logo">
-								<a href="#"><img src="img/logos/logo-deleite-pastel.png" alt="" /></a>
+								<a href="#"><Image src="img/logos/logo-deleite-pastel.png" alt="" /></a>
 							</div>
 							<p>¡De mi horno a tu casa!</p>
 							<div className="footer__social">

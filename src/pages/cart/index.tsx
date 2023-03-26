@@ -2,6 +2,7 @@ import { Layout } from '@/components/Layout';
 import Product from '@/domain/entities/Product';
 import { decreaseProductQty, increaseProductQty, removeItem, selectCartState } from '@/features/slices/cartSlice';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import numeral from 'numeral';
@@ -81,7 +82,7 @@ const Cart: React.FC<CartProps> = () => {
 														<tr key={index}>
 															<td className="product__cart__item">
 																<div className="product__cart__item__pic">
-																	<img src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + item.product.images[0]} alt="" />
+																	<Image src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + item.product.images[0]} alt="" />
 																</div>
 																<div className="product__cart__item__text">
 																	<h6 onClick={() => router.push("/product-details?id=" + item.product.uuid)}>{item.product.name}</h6>

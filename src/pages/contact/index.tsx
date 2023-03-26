@@ -1,5 +1,6 @@
 import { Layout } from '@/components/Layout';
 import Head from 'next/head';
+import Image from 'next/image';
 import React from 'react';
 export interface ContactProps { };
 
@@ -97,7 +98,7 @@ const Contact: React.FC<ContactProps> = () => {
                                     <li>Mon-Fri: 5:00am to 9:00pm</li>
                                     <li>Sat-Sun: 6:00am to 9:00pm</li>
                                 </ul>
-                                <img src="img/cake-piece.png" alt="" />
+                                <Image src="img/cake-piece.png" alt="" />
                             </div>
                         </div>
                         <div className="col-lg-8">

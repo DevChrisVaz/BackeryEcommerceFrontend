@@ -33,7 +33,7 @@ const Shop: React.FC<ShopProps> = () => {
 
     useEffect(() => {
         getAllProducts();
-    }, []);
+    }, [getAllProducts]);
 
     return (
         <>

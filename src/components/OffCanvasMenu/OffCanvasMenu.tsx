@@ -1,4 +1,5 @@
 import { selectCartState } from '@/features/slices/cartSlice';
+import Image from 'next/image';
 import Link from 'next/link';
 import numeral from 'numeral';
 import React, { useEffect, useState } from 'react';
@@ -30,16 +31,16 @@ const OffCanvasMenu: React.FC<OffCanvasMenuProps> = () => {
 			<div className="offcanvas-menu-wrapper">
 				<div className="offcanvas__cart">
 					<div className="offcanvas__cart__links">
-						<a href="#" className="search-switch"><img src="img/icon/search.png" alt="" /></a>
-						<a href="#"><img src="img/icon/heart.png" alt="" /></a>
+						<a href="#" className="search-switch"><Image src="img/icon/search.png" alt="" /></a>
+						<a href="#"><Image src="img/icon/heart.png" alt="" /></a>
 					</div>
 					<div className="offcanvas__cart__item">
-						<Link href="/cart"><img src="img/icon/cart.png" alt="" /> <span>{totalItems}</span></Link>
+						<Link href="/cart"><Image src="img/icon/cart.png" alt="" /> <span>{totalItems}</span></Link>
 						<div className="cart__price">Total: <span>{numeral(cartTotal).format("$0,0.00")}</span></div>
 					</div>
 				</div>
 				<div className="offcanvas__logo">
-					<Link href="/"><img src="img/logos/logo-deleite-cafe_oscuro.png" alt="" /></Link>
+					<Link href="/"><Image src="img/logos/logo-deleite-cafe_oscuro.png" alt="" /></Link>
 				</div>
 				<div id="mobile-menu-wrap"></div>
 				<div className="offcanvas__option" style={{ visibility: "hidden" }}>
