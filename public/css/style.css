@@ -1057,7 +1057,11 @@ ol {
   visibility: visible;
   bottom: -4px;
 }
-
+.product__item:hover .product__item__text .cart_remove {
+  opacity: 1;
+  visibility: visible;
+  bottom: -4px;
+}
 .product__item__pic {
   height: 270px;
   position: relative;
@@ -1105,7 +1109,7 @@ ol {
   -o-transition: all, 0.3s;
   transition: all, 0.3s;
 }
-.product__item__text .cart_add {
+.product__item__text .cart_add, .product__item__text .cart_remove {
   position: absolute;
   left: 0;
   bottom: -20px;
@@ -1122,6 +1126,14 @@ ol {
   font-weight: 600;
   display: inline-block;
   border-bottom: 2px solid #573c30;
+  padding-bottom: 4px;
+}
+.product__item__text .cart_remove a {
+  color: #111111;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  border-bottom: 2px solid #C0392B;
   padding-bottom: 4px;
 }
 

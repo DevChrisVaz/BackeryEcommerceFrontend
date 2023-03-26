@@ -98,7 +98,7 @@ const Contact: React.FC<ContactProps> = () => {
                                     <li>Mon-Fri: 5:00am to 9:00pm</li>
                                     <li>Sat-Sun: 6:00am to 9:00pm</li>
                                 </ul>
-                                <Image src="img/cake-piece.png" alt="" />
+                                <Image src="/img/cake-piece.png" alt="" width={88} height={100} />
                             </div>
                         </div>
                         <div className="col-lg-8">

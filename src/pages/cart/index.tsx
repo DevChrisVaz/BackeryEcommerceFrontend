@@ -82,7 +82,7 @@ const Cart: React.FC<CartProps> = () => {
 														<tr key={index}>
 															<td className="product__cart__item">
 																<div className="product__cart__item__pic">
-																	<Image src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + item.product.images[0]} alt="" />
+																	<Image src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + item.product.images[0]} alt="" width={90} height={90} />
 																</div>
 																<div className="product__cart__item__text">
 																	<h6 onClick={() => router.push("/product-details?id=" + item.product.uuid)}>{item.product.name}</h6>
@@ -113,7 +113,7 @@ const Cart: React.FC<CartProps> = () => {
 								<div className="row">
 									<div className="col-lg-6 col-md-6 col-sm-6">
 										<div className="continue__btn">
-											<Link href="/shop">Continuar comprando</Link>
+											<Link href="/shop">Continuar cotizando</Link>
 										</div>
 									</div>
 									<div className="col-lg-6 col-md-6 col-sm-6" style={{ visibility: "hidden" }}>
@@ -124,7 +124,7 @@ const Cart: React.FC<CartProps> = () => {
 								</div>
 							</div>
 							<div className="col-lg-4">
-								<div className="cart__discount">
+								<div className="cart__discount" style={{ display: "none" }}>
 									<h6>Código promocional</h6>
 									<form action="#">
 										<input type="text" placeholder="Cupón" />
@@ -132,12 +132,12 @@ const Cart: React.FC<CartProps> = () => {
 									</form>
 								</div>
 								<div className="cart__total">
-									<h6>Cart total</h6>
+									<h6>Total</h6>
 									<ul>
 										<li>Subtotal <span>{numeral(cartTotal).format("$0,0.00")}</span></li>
 										<li>Total <span>{numeral(cartTotal).format("$0,0.00")}</span></li>
 									</ul>
-									<Link href="/checkout" className="primary-btn">Proceder al pago</Link>
+									<Link href="/checkout" className="primary-btn">Solicitar cotización</Link>
 								</div>
 							</div>
 						</div>

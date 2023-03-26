@@ -95,7 +95,7 @@ const About: React.FC<AboutProps> = () => {
 									<div className="testimonial__item">
 										<div className="testimonial__author">
 											<div className="testimonial__author__pic">
-												<Image src="img/testimonial/ta-1.jpg" alt="" />
+												<Image src="/img/testimonial/ta-1.jpg" alt="" width={70} height={70} />
 											</div>
 											<div className="testimonial__author__text">
 												<h5>Kerry D.Silva</h5>
@@ -117,7 +117,7 @@ const About: React.FC<AboutProps> = () => {
 									<div className="testimonial__item">
 										<div className="testimonial__author">
 											<div className="testimonial__author__pic">
-												<Image src="img/testimonial/ta-2.jpg" alt="" />
+												<Image src="/img/testimonial/ta-2.jpg" alt="" width={70} height={70} />
 											</div>
 											<div className="testimonial__author__text">
 												<h5>Kerry D.Silva</h5>
@@ -139,7 +139,7 @@ const About: React.FC<AboutProps> = () => {
 									<div className="testimonial__item">
 										<div className="testimonial__author">
 											<div className="testimonial__author__pic">
-												<Image src="img/testimonial/ta-1.jpg" alt="" />
+												<Image src="/img/testimonial/ta-1.jpg" alt="" width={70} height={70} />
 											</div>
 											<div className="testimonial__author__text">
 												<h5>Ophelia Nunez</h5>
@@ -161,7 +161,7 @@ const About: React.FC<AboutProps> = () => {
 									<div className="testimonial__item">
 										<div className="testimonial__author">
 											<div className="testimonial__author__pic">
-												<Image src="img/testimonial/ta-2.jpg" alt="" />
+												<Image src="/img/testimonial/ta-2.jpg" alt="" width={70} height={70} />
 											</div>
 											<div className="testimonial__author__text">
 												<h5>Kerry D.Silva</h5>
@@ -183,7 +183,7 @@ const About: React.FC<AboutProps> = () => {
 									<div className="testimonial__item">
 										<div className="testimonial__author">
 											<div className="testimonial__author__pic">
-												<Image src="img/testimonial/ta-1.jpg" alt="" />
+												<Image src="/img/testimonial/ta-1.jpg" alt="" width={70} height={70} />
 											</div>
 											<div className="testimonial__author__text">
 												<h5>Ophelia Nunez</h5>
@@ -205,7 +205,7 @@ const About: React.FC<AboutProps> = () => {
 									<div className="testimonial__item">
 										<div className="testimonial__author">
 											<div className="testimonial__author__pic">
-												<Image src="img/testimonial/ta-2.jpg" alt="" />
+												<Image src="/img/testimonial/ta-2.jpg" alt="" width={70} height={70} />
 											</div>
 											<div className="testimonial__author__text">
 												<h5>Kerry D.Silva</h5>

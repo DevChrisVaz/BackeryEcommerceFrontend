@@ -109,21 +109,21 @@ export default function Home() {
 										<p>Diseño</p>
 										<div id="bar1" className="barfiller">
 											<div className="tipWrap"><span className="tip"></span></div>
-											<span className="fill" data-percentage="95"></span>
+											<span className=" data-percentage="95"></span>
 										</div>
 									</div>
 									<div className="about__bar__item">
 										<p>Calidad</p>
 										<div id="bar2" className="barfiller">
 											<div className="tipWrap"><span className="tip"></span></div>
-											<span className="fill" data-percentage="90"></span>
+											<span className=" data-percentage="90"></span>
 										</div>
 									</div>
 									<div className="about__bar__item">
 										<p>Recetas</p>
 										<div id="bar3" className="barfiller">
 											<div className="tipWrap"><span className="tip"></span></div>
-											<span className="fill" data-percentage="95"></span>
+											<span className=" data-percentage="95"></span>
 										</div>
 									</div>
 								</div>
@@ -333,8 +333,8 @@ export default function Home() {
               </div>
             </div>
             <div className="class__video set-bg" data-setbg="img/class-video.jpg">
-              <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"
-                className="play-btn video-popup"><i className="fa fa-play"></i></a>
+              {/* <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"
+                className="play-btn video-popup"><i className="fa fa-play"></i></a> */}
             </div>
           </div>
         </section>
@@ -429,7 +429,7 @@ export default function Home() {
                   <div className="testimonial__item">
                     <div className="testimonial__author">
                       <div className="testimonial__author__pic">
-                        <Image src="img/testimonial/ta-1.jpg" alt="" />
+                        <Image src="/img/testimonial/ta-1.jpg" alt="" width={70} height={70} />
                       </div>
                       <div className="testimonial__author__text">
                         <h5>Kerry D.Silva</h5>
@@ -451,7 +451,7 @@ export default function Home() {
                   <div className="testimonial__item">
                     <div className="testimonial__author">
                       <div className="testimonial__author__pic">
-                        <Image src="img/testimonial/ta-2.jpg" alt="" />
+                        <Image src="/img/testimonial/ta-2.jpg" alt="" width={70} height={70} />
                       </div>
                       <div className="testimonial__author__text">
                         <h5>Kerry D.Silva</h5>
@@ -473,7 +473,7 @@ export default function Home() {
                   <div className="testimonial__item">
                     <div className="testimonial__author">
                       <div className="testimonial__author__pic">
-                        <Image src="img/testimonial/ta-1.jpg" alt="" />
+                        <Image src="/img/testimonial/ta-1.jpg" alt="" width={70} height={70} />
                       </div>
                       <div className="testimonial__author__text">
                         <h5>Ophelia Nunez</h5>
@@ -495,7 +495,7 @@ export default function Home() {
                   <div className="testimonial__item">
                     <div className="testimonial__author">
                       <div className="testimonial__author__pic">
-                        <Image src="img/testimonial/ta-2.jpg" alt="" />
+                        <Image src="/img/testimonial/ta-2.jpg" alt="" width={70} height={70} />
                       </div>
                       <div className="testimonial__author__text">
                         <h5>Kerry D.Silva</h5>
@@ -517,7 +517,7 @@ export default function Home() {
                   <div className="testimonial__item">
                     <div className="testimonial__author">
                       <div className="testimonial__author__pic">
-                        <Image src="img/testimonial/ta-1.jpg" alt="" />
+                        <Image src="/img/testimonial/ta-1.jpg" alt="" width={70} height={70} />
                       </div>
                       <div className="testimonial__author__text">
                         <h5>Ophelia Nunez</h5>
@@ -539,7 +539,7 @@ export default function Home() {
                   <div className="testimonial__item">
                     <div className="testimonial__author">
                       <div className="testimonial__author__pic">
-                        <Image src="img/testimonial/ta-2.jpg" alt="" />
+                        <Image src="/img/testimonial/ta-2.jpg" alt="" width={70} height={70} />
                       </div>
                       <div className="testimonial__author__text">
                         <h5>Kerry D.Silva</h5>
@@ -577,32 +577,32 @@ export default function Home() {
                 <div className="row">
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic">
-                      <Image src="img/instagram/instagram-1.jpg" alt="" />
+                      <Image src="/img/instagram/instagram-1.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic middle__pic">
-                      <Image src="img/instagram/instagram-2.jpg" alt="" />
+                      <Image src="/img/instagram/instagram-2.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic">
-                      <Image src="img/instagram/instagram-3.jpg" alt="" />
+                      <Image src="/img/instagram/instagram-3.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic">
-                      <Image src="img/instagram/instagram-4.jpg" alt="" />
+                      <Image src="/img/instagram/instagram-4.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic middle__pic">
-                      <Image src="img/instagram/instagram-5.jpg" alt="" />
+                      <Image src="/img/instagram/instagram-5.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic">
-                      <Image src="img/instagram/instagram-3.jpg" alt="" />
+                      <Image src="/img/instagram/instagram-3.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                 </div>

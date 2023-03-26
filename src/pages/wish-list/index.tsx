@@ -43,7 +43,7 @@ const WishList: React.FC<WishListProps> = () => {
 										<tr>
 											<td className="product__cart__item">
 												<div className="product__cart__item__pic">
-													<Image src="img/shop/cart/cart-1.jpg" alt="" />
+													<Image src="/img/shop/cart/cart-1.jpg" alt="" width={90} height={90} />
 												</div>
 												<div className="product__cart__item__text">
 													<h6>Vanilla Salted Caramel</h6>
@@ -57,7 +57,7 @@ const WishList: React.FC<WishListProps> = () => {
 										<tr>
 											<td className="product__cart__item">
 												<div className="product__cart__item__pic">
-													<Image src="img/shop/cart/cart-2.jpg" alt="" />
+													<Image src="/img/shop/cart/cart-2.jpg" alt="" width={90} height={90} />
 												</div>
 												<div className="product__cart__item__text">
 													<h6>German Chocolate</h6>
@@ -71,7 +71,7 @@ const WishList: React.FC<WishListProps> = () => {
 										<tr>
 											<td className="product__cart__item">
 												<div className="product__cart__item__pic">
-													<Image src="img/shop/cart/cart-3.jpg" alt="" />
+													<Image src="/img/shop/cart/cart-3.jpg" alt="" width={90} height={90} />
 												</div>
 												<div className="product__cart__item__text">
 													<h6>SWEET AUTUMN LEAVES</h6>
@@ -85,7 +85,7 @@ const WishList: React.FC<WishListProps> = () => {
 										<tr>
 											<td className="product__cart__item">
 												<div className="product__cart__item__pic">
-													<Image src="img/shop/cart/cart-4.jpg" alt="" />
+													<Image src="/img/shop/cart/cart-4.jpg" alt="" width={90} height={90} />
 												</div>
 												<div className="product__cart__item__text">
 													<h6>Gluten Free Mini Dozen</h6>

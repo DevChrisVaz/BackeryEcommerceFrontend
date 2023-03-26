@@ -134,7 +134,7 @@ const Blog: React.FC<BlogProps> = () => {
                                     <div className="blog__sidebar__recent">
                                         <a href="#" className="blog__sidebar__recent__item">
                                             <div className="blog__sidebar__recent__item__pic">
-                                                <Image src="img/blog/br-1.jpg" alt="" />
+                                                <Image src="/img/blog/br-1.jpg" alt="" width={90} height={90} />
                                             </div>
                                             <div className="blog__sidebar__recent__item__text">
                                                 <h4>Secret To Cooking Vegetables</h4>
@@ -143,7 +143,7 @@ const Blog: React.FC<BlogProps> = () => {
                                         </a>
                                         <a href="#" className="blog__sidebar__recent__item">
                                             <div className="blog__sidebar__recent__item__pic">
-                                                <Image src="img/blog/br-2.jpg" alt="" />
+                                                <Image src="/img/blog/br-2.jpg" alt="" width={90} height={90} />
                                             </div>
                                             <div className="blog__sidebar__recent__item__text">
                                                 <h4>Bbq Myths Getting You Down</h4>
@@ -152,7 +152,7 @@ const Blog: React.FC<BlogProps> = () => {
                                         </a>
                                         <a href="#" className="blog__sidebar__recent__item">
                                             <div className="blog__sidebar__recent__item__pic">
-                                                <Image src="img/blog/br-3.jpg" alt="" />
+                                                <Image src="/img/blog/br-3.jpg" alt="" width={90} height={90} />
                                             </div>
                                             <div className="blog__sidebar__recent__item__text">
                                                 <h4>Save Money The Crock Pot Way</h4>
@@ -161,7 +161,7 @@ const Blog: React.FC<BlogProps> = () => {
                                         </a>
                                         <a href="#" className="blog__sidebar__recent__item">
                                             <div className="blog__sidebar__recent__item__pic">
-                                                <Image src="img/blog/br-4.jpg" alt="" />
+                                                <Image src="/img/blog/br-4.jpg" alt="" width={90} height={90} />
                                             </div>
                                             <div className="blog__sidebar__recent__item__text">
                                                 <h4>Grilling Tips For The Dog Days Of Summer</h4>
@@ -170,7 +170,7 @@ const Blog: React.FC<BlogProps> = () => {
                                         </a>
                                         <a href="#" className="blog__sidebar__recent__item">
                                             <div className="blog__sidebar__recent__item__pic">
-                                                <Image src="img/blog/br-5.jpg" alt="" />
+                                                <Image src="/img/blog/br-5.jpg" alt="" width={90} height={90} />
                                             </div>
                                             <div className="blog__sidebar__recent__item__text">
                                                 <h4>Barbeque Techniques Two Methods To Consider</h4>
