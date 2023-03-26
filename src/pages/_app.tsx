@@ -9,7 +9,7 @@ function App({ Component, pageProps }: AppProps) {
 		mainScript.src = "js/main.js";
 		setTimeout(() => {
       document.body.appendChild(mainScript);
-    }, 100);
+    }, 500);
 	});
 
   return <Component {...pageProps} />
