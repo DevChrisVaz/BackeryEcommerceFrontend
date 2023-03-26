@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", "backery-ecommerce-services.onrender.com"],
     remotePatterns: [
       {
         protocol: "http",
