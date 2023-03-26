@@ -69,7 +69,7 @@ export default function Home() {
                 <div className="row d-flex justify-content-center">
                   <div className="col-lg-8">
                     <div className="hero__text">
-                      <h2>¡De mi horno a tu casa!</h2>
+                      <h2>¡De mi horno a tu mesa!</h2>
                       <a href="#" className="primary-btn">Nuestros pasteles</a>
                     </div>
                   </div>
@@ -309,7 +309,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="class spad">
+        {/* <section className="class spad">
           <div className="container">
             <div className="row">
               <div className="col-lg-6">
@@ -333,11 +333,11 @@ export default function Home() {
               </div>
             </div>
             <div className="class__video set-bg" data-setbg="img/class-video.jpg">
-              {/* <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"
-                className="play-btn video-popup"><i className="fa fa-play"></i></a> */}
+              <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"
+                className="play-btn video-popup"><i className="fa fa-play"></i></a>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* <section className="team spad">
           <div className="container">
             <div className="row">

@@ -23,7 +23,7 @@ const Footer: React.FC<FooterProps> = () => {
 							<div className="footer__logo">
 								<a href="#"><Image src="/img/logos/logo-deleite-pastel.png" alt="" width={120} height={52} /></a>
 							</div>
-							<p>¡De mi horno a tu casa!</p>
+							<p>¡De mi horno a tu mesa!</p>
 							<div className="footer__social">
 								<a href="https://www.facebook.com/deleitemerida/" target="_blank"><i className="fa fa-facebook"></i></a>
 								<a href="https://wa.me/9993893779" target="_blank"><i className="fa fa-whatsapp"></i></a>
@@ -38,7 +38,7 @@ const Footer: React.FC<FooterProps> = () => {
 							<p>No te pierdas nuestras novedades y ofertas.</p>
 							<form action="#">
 								<input type="text" placeholder="Correo" />
-									<button type="submit"><i className="fa fa-send-o"></i></button>
+								<button type="submit"><i className="fa fa-send-o"></i></button>
 							</form>
 						</div>
 					</div>
@@ -50,9 +50,10 @@ const Footer: React.FC<FooterProps> = () => {
 						<div className="col-lg-7">
 							<p className="copyright__text text-white">
 								{/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
-								Copyright &copy;{new Date().getFullYear()} Todos los derechos reservados | This template is made with <i className="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								Copyright &copy;{new Date().getFullYear()} Todos los derechos reservados
 								{/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
 							</p>
+							{/* | This template is made with <i className="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> */}
 						</div>
 						<div className="col-lg-5">
 							<div className="copyright__widget">
