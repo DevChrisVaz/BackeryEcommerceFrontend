@@ -81,7 +81,7 @@ const Cart: React.FC<CartProps> = () => {
 														<tr key={index}>
 															<td className="product__cart__item">
 																<div className="product__cart__item__pic">
-																	<img src="img/shop/cart/cart-1.jpg" alt="" />
+																	<img src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + item.product.images[0]} alt="" />
 																</div>
 																<div className="product__cart__item__text">
 																	<h6 onClick={() => router.push("/product-details?id=" + item.product.uuid)}>{item.product.name}</h6>
@@ -101,8 +101,8 @@ const Cart: React.FC<CartProps> = () => {
 																</div>
 															</td>
 															<td className="cart__price">{item.product.price && numeral(item.product.price * item.qty).format("$0,0.00")}</td>
-															<td className="cart__close"><span className="icon_close"></span></td>
-															|											</tr>
+															<td className="cart__close"><span className="icon_close" style={{ cursor: "pointer" }} onClick={() => handleRemoveFromCart(item.product.uuid ?? "")}></span></td>
+														</tr>
 													)
 												})
 											}

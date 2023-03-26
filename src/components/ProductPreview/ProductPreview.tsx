@@ -20,7 +20,7 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ product }) => {
 	return (
 		<div className="col-lg-3 col-md-6 col-sm-6">
 			<div className="product__item">
-				<div className="product__item__pic set-bg" data-setbg={"http://localhost:5000/" + product.images[0]}>
+				<div className="product__item__pic set-bg" data-setbg={process.env.NEXT_PUBLIC_API_URL_PUBLIC + product.images[0]}>
 					<div className="product__label">
 						<span>{product.categoryRef.name}</span>
 					</div>

@@ -85,7 +85,7 @@ const Navbar: React.FC<NavbarProps> = () => {
 										<li><Link href="./blog-details.html">Blog Details</Link></li>
 									</ul>
 								</li> */}
-								<li><Link href="/blog">Blog</Link></li>
+								{/* <li><Link href="/blog">Blog</Link></li> */}
 								<li><Link href="/contact">Contacto</Link></li>
 							</ul>
 						</nav>

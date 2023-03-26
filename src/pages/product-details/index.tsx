@@ -106,15 +106,15 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 							<div className="col-lg-6">
 								<div className="product__details__img">
 									<div className="product__details__big__img" ref={bigImgRef}>
-										<img className="big_img" src={"http://localhost:5000/" + product?.images[0]} alt="" />
+										<img className="big_img" src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + product?.images[0]} alt="" />
 									</div>
 									<div className="product__details__thumb">
 										{
 											product?.images.length > 0 &&
 											product?.images.map((image: string, index: number) => (
 												<div key={index} className="pt__item active">
-													<img data-imgbigurl={"http://localhost:5000/" + image}
-														src={"http://localhost:5000/" + image} alt="" />
+													<img data-imgbigurl={process.env.NEXT_PUBLIC_API_URL_PUBLIC + image}
+														src={process.env.NEXT_PUBLIC_API_URL_PUBLIC + image} alt="" />
 												</div>
 											))
 										}
