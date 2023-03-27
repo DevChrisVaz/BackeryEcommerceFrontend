@@ -136,7 +136,7 @@ const Checkout: React.FC<CheckoutProps> = () => {
 												{
 													cartState.length > 0 && cartState.map((item, index) => {
 														return (
-															<li><samp>{numeral(index + 1).format("00")}.</samp> {item.product.name}<span>{item.product.price && numeral(item.product.price * item.qty).format("$0,0.00")}</span></li>
+															<li key={index}><samp>{numeral(index + 1).format("00")}.</samp> {item.product.name}<span>{item.product.price && numeral(item.product.price * item.qty).format("$0,0.00")}</span></li>
 														)
 													})
 												}
