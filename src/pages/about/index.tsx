@@ -23,8 +23,8 @@ const About: React.FC<AboutProps> = () => {
 							</div>
 							<div className="col-lg-6 col-md-6 col-sm-6">
 								<div className="breadcrumb__links">
-									<Link href="/">Home</Link>
-									<span>About</span>
+									<Link href="/">Inicio</Link>
+									<span>Cónocenos</span>
 								</div>
 							</div>
 						</div>
@@ -42,10 +42,10 @@ const About: React.FC<AboutProps> = () => {
 						</div>
 						<div className="row">
 							<div className="col-lg-6 col-md-6">
-								<div className="about__text">
+								<div className="about__text">	
 									<div className="section-title">
 										<span>Acerca de Deleite</span>
-										<h2>¡De mi horno a tu casa!</h2>
+										<h2>¡De mi horno a tu mesa!</h2>
 									</div>
 									<p>Me llamo Lilian Zapien, me considero una mujer emprendedora, creativa y dispuesta a dar todo de mi cuanto algo me apasiona.
 										Después de graduarme de la escuela, me comencé a enamorar de la cocina y pronto me di cuenta de que todo lo que quería hacer era crear pasteles.</p>

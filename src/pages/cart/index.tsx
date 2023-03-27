@@ -1,5 +1,4 @@
 import { Layout } from '@/components/Layout';
-import Product from '@/domain/entities/Product';
 import { decreaseProductQty, increaseProductQty, removeItem, selectCartState } from '@/features/slices/cartSlice';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -137,7 +136,9 @@ const Cart: React.FC<CartProps> = () => {
 										<li>Subtotal <span>{numeral(cartTotal).format("$0,0.00")}</span></li>
 										<li>Total <span>{numeral(cartTotal).format("$0,0.00")}</span></li>
 									</ul>
-									<Link href="/checkout" className="primary-btn">Solicitar cotización</Link>
+									{
+										cartTotal > 0 && <Link href="/checkout" className="primary-btn">Solicitar cotización</Link>
+									}
 								</div>
 							</div>
 						</div>

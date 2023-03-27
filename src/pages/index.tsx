@@ -137,38 +137,38 @@ export default function Home() {
               <div className="categories__slider owl-carousel">
                 <div className="categories__item">
                   <div className="categories__item__icon">
-                    <span className="flaticon-029-cupcake-3"></span>
-                    <h5>Cupcake</h5>
+                    <span className="flaticon-004-piece-of-cake"></span>
+                    <h5>Brownies</h5>
                   </div>
                 </div>
                 <div className="categories__item">
                   <div className="categories__item__icon">
-                    <span className="flaticon-034-chocolate-roll"></span>
-                    <h5>Butter</h5>
+                    <span className="flaticon-031-cupcake-1"></span>
+                    <h5>Cupcakes</h5>
+                  </div>
+                </div>
+                <div className="categories__item">
+                  <div className="categories__item__icon">
+                    <span className="flaticon-038-cake-8"></span>
+                    <h5>Gelatinas</h5>
                   </div>
                 </div>
                 <div className="categories__item">
                   <div className="categories__item__icon">
                     <span className="flaticon-005-pancake"></span>
-                    <h5>Red Velvet</h5>
+                    <h5>Hot-Cakes</h5>
                   </div>
                 </div>
                 <div className="categories__item">
                   <div className="categories__item__icon">
-                    <span className="flaticon-030-cupcake-2"></span>
-                    <h5>Biscuit</h5>
+                    <span className="flaticon-023-doughnut"></span>
+                    <h5>Donas</h5>
                   </div>
                 </div>
                 <div className="categories__item">
                   <div className="categories__item__icon">
-                    <span className="flaticon-006-macarons"></span>
-                    <h5>Donut</h5>
-                  </div>
-                </div>
-                <div className="categories__item">
-                  <div className="categories__item__icon">
-                    <span className="flaticon-006-macarons"></span>
-                    <h5>Cupcake</h5>
+                    <span className="flaticon-050-cake"></span>
+                    <h5>Pasteles</h5>
                   </div>
                 </div>
               </div>
@@ -418,8 +418,8 @@ export default function Home() {
             <div className="row">
               <div className="col-lg-12 text-center">
                 <div className="section-title">
-                  <span>Testimonial</span>
-                  <h2>Our client say</h2>
+                  <span>Opiniones</span>
+                  <h2>Nuestros clientes dicen</h2>
                 </div>
               </div>
             </div>
@@ -441,10 +441,12 @@ export default function Home() {
                       <span className="icon_star"></span>
                       <span className="icon_star"></span>
                       <span className="icon_star"></span>
-                      <span className="icon_star-half_alt"></span>
+                      <span className="icon_star"></span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                      ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                    {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                      ut labore et dolore magna aliqua viverra lacus vel facilisis.</p> */}
+                    <p className="comment">Elaboran pasteles de diferentes ingredientes y gustos son en realidad exquisitos, 
+                      les recomiendo todos, pero en lo personal les recomiendo el de tres leches con mora y el de chocolate con ferrero.</p>
                   </div>
                 </div>
                 <div className="col-lg-6">
@@ -577,32 +579,32 @@ export default function Home() {
                 <div className="row">
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic">
-                      <Image src="/img/instagram/instagram-1.jpg" alt="" width={240} height={240} />
+                      <Image src="/img/instagram/instagram1.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic middle__pic">
-                      <Image src="/img/instagram/instagram-2.jpg" alt="" width={240} height={240} />
+                      <Image src="/img/instagram/instagram2.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic">
-                      <Image src="/img/instagram/instagram-3.jpg" alt="" width={240} height={240} />
+                      <Image src="/img/instagram/instagram3.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic">
-                      <Image src="/img/instagram/instagram-4.jpg" alt="" width={240} height={240} />
+                      <Image src="/img/instagram/instagram4.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic middle__pic">
-                      <Image src="/img/instagram/instagram-5.jpg" alt="" width={240} height={240} />
+                      <Image src="/img/instagram/instagram5.jpg" alt="" width={240} height={240} />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div className="instagram__pic">
-                      <Image src="/img/instagram/instagram-3.jpg" alt="" width={240} height={240} />
+                      <Image src="/img/instagram/instagram6.jpeg" alt="" width={240} height={240} />
                     </div>
                   </div>
                 </div>

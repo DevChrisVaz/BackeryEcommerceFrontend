@@ -48,7 +48,7 @@ const Contact: React.FC<ContactProps> = () => {
                                             <p>+52 999-389-3779</p>
                                         </li>
                                         <li><span className="icon_mail_alt"></span>
-                                            <p>Sweetcake@support.com</p>
+                                            <p>deleitelzt@gmail.com</p>
                                         </li>
                                     </ul>
                                 </div>
