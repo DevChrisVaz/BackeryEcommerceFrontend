@@ -47,6 +47,7 @@ const Shop: React.FC<ShopProps> = () => {
 
     useEffect(() => {
         getAllProducts();
+        getAllCategories();
     }, []);
 
     return (
