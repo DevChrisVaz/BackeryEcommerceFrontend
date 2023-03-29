@@ -11,6 +11,8 @@ import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, decreaseProductQty, increaseProductQty, removeItem, selectCartState } from '@/features/slices/cartSlice';
 import Image from 'next/image';
+import GetRelatedProductsUseCase from '@/application/usecases/product/GetRelatedProductsUseCase';
+import { ProductPreview } from '@/components/ProductPreview';
 export interface ProductDetailsProps { }
 
 // function getServerSideProps(context: any) {
@@ -19,10 +21,12 @@ export interface ProductDetailsProps { }
 
 const ProductDetails: React.FC<ProductDetailsProps> = () => {
 	const [product, setProduct] = useState<Product>();
+	const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
 	const [loading, setLoading] = useState<boolean>(true);
 
 	const productRepo = new ProductRepo();
 	const getProductByIdUseCase = new GetProductByIdUseCase(productRepo);
+	const getRelatedProductsUseCase = new GetRelatedProductsUseCase(productRepo);
 	const increaseProductViewsUseCase = new IncreaseProductViewsUseCase(productRepo);
 
 	const bigImgRef = useRef<HTMLDivElement>(null);
@@ -73,9 +77,23 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 		}
 	}
 
+	const getRelatedProducts = async (id: string) => {
+		try {
+			const { data, status } = await getRelatedProductsUseCase.run(id);
+			if (status === 200 && data) setRelatedProducts(data);
+		} catch (err) {
+
+		}
+	}
+
 	useEffect(() => {
 		getProduct();
 	}, [id]);
+
+	useEffect(() => {
+		getRelatedProducts(product?.uuid ?? "");
+	}, [product]);
+
 
 	return loading ? <span>Loading...</span> : (
 		<>
@@ -217,117 +235,29 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 						</div> */}
 					</div>
 				</section>
-				<section className="related-products spad">
-					<div className="container">
-						<div className="row">
-							<div className="col-lg-12 text-center">
-								<div className="section-title">
-									<h2>Related Products</h2>
-								</div>
-							</div>
-						</div>
-						<div className="row">
-							<div className="related__products__slider owl-carousel">
-								<div className="col-lg-3">
-									<div className="product__item">
-										<div className="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
-											<div className="product__label">
-												<span>Cupcake</span>
-											</div>
-										</div>
-										<div className="product__item__text">
-											<h6><a href="#">Dozen Cupcakes</a></h6>
-											<div className="product__item__price">$32.00</div>
-											<div className="cart_add">
-												<a href="#">Add to cart</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-3">
-									<div className="product__item">
-										<div className="product__item__pic set-bg" data-setbg="img/shop/product-2.jpg">
-											<div className="product__label">
-												<span>Cupcake</span>
-											</div>
-										</div>
-										<div className="product__item__text">
-											<h6><a href="#">Cookies and Cream</a></h6>
-											<div className="product__item__price">$30.00</div>
-											<div className="cart_add">
-												<a href="#">Add to cart</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-3">
-									<div className="product__item">
-										<div className="product__item__pic set-bg" data-setbg="img/shop/product-3.jpg">
-											<div className="product__label">
-												<span>Cupcake</span>
-											</div>
-										</div>
-										<div className="product__item__text">
-											<h6><a href="#">Gluten Free Mini Dozen</a></h6>
-											<div className="product__item__price">$31.00</div>
-											<div className="cart_add">
-												<a href="#">Add to cart</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-3">
-									<div className="product__item">
-										<div className="product__item__pic set-bg" data-setbg="img/shop/product-4.jpg">
-											<div className="product__label">
-												<span>Cupcake</span>
-											</div>
-										</div>
-										<div className="product__item__text">
-											<h6><a href="#">Cookie Dough</a></h6>
-											<div className="product__item__price">$25.00</div>
-											<div className="cart_add">
-												<a href="#">Add to cart</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-3">
-									<div className="product__item">
-										<div className="product__item__pic set-bg" data-setbg="img/shop/product-5.jpg">
-											<div className="product__label">
-												<span>Cupcake</span>
-											</div>
-										</div>
-										<div className="product__item__text">
-											<h6><a href="#">Vanilla Salted Caramel</a></h6>
-											<div className="product__item__price">$05.00</div>
-											<div className="cart_add">
-												<a href="#">Add to cart</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-3">
-									<div className="product__item">
-										<div className="product__item__pic set-bg" data-setbg="img/shop/product-6.jpg">
-											<div className="product__label">
-												<span>Cupcake</span>
-											</div>
-										</div>
-										<div className="product__item__text">
-											<h6><a href="#">German Chocolate</a></h6>
-											<div className="product__item__price">$14.00</div>
-											<div className="cart_add">
-												<a href="#">Add to cart</a>
-											</div>
-										</div>
+				{
+					relatedProducts.length > 0 &&
+					<section className="related-products spad">
+						<div className="container">
+							<div className="row">
+								<div className="col-lg-12 text-center">
+									<div className="section-title">
+										<h2>Related Products</h2>
 									</div>
 								</div>
 							</div>
+							<div className="row">
+								<div className="related__products__slider owl-carousel">
+									{
+										relatedProducts.map((product, index) => (
+											<ProductPreview key={index} product={product} />
+										))
+									}
+								</div>
+							</div>
 						</div>
-					</div>
-				</section>
+					</section>
+				}
 			</Layout>
 		</>
 	);

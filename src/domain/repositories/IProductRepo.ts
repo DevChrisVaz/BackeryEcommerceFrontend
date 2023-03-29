@@ -3,6 +3,7 @@ import Response from "../entities/Response";
 
 interface IProductRepo {
     getAll(): Promise<Response<Product[]>>;
+    getRelated(id: string): Promise<Response<Product[]>>;
     getMostVisited(): Promise<Response<Product[]>>;
     getOne(id: string): Promise<Response<Product>>;
     create(product: Product): Promise<Response<Product>>;

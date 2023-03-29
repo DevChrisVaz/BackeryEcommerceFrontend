@@ -17,8 +17,8 @@ const About: React.FC<AboutProps> = () => {
 	const getPublicComments = async () => {
 		try {
 			const { data, status } = await getPublicCommentsUseCase.run();
-			if(status === 200 && data) setComments(data);
-		} catch(err) {
+			if (status === 200 && data) setComments(data);
+		} catch (err) {
 
 		}
 	}
@@ -26,7 +26,7 @@ const About: React.FC<AboutProps> = () => {
 	useEffect(() => {
 		getPublicComments();
 	}, []);
-	
+
 
 	return (
 		<>
@@ -114,13 +114,13 @@ const About: React.FC<AboutProps> = () => {
 							</div>
 							<div className="row">
 								<div className="testimonial__slider owl-carousel">
-									<div className="col-lg-6">
-										{
-											comments.map((comment, index) => (
+									{
+										comments.map((comment, index) => (
+											<div className="col-lg-6">
 												<CommentComponent key={index} comment={comment} />
-											))
-										}
-									</div>
+											</div>
+										))
+									}
 								</div>
 							</div>
 						</div>

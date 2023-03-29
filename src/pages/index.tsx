@@ -376,13 +376,13 @@ export default function Home() {
               </div>
               <div className="row">
                 <div className="testimonial__slider owl-carousel">
-                  <div className="col-lg-6">
-                    {
-                      comments.map((comment, index) => (
+                  {
+                    comments.map((comment, index) => (
+                      <div className="col-lg-6">
                         <CommentComponent key={index} comment={comment} />
-                      ))
-                    }
-                  </div>
+                      </div>
+                    ))
+                  }
                   {/* <div className="col-lg-6">
                     <div className="testimonial__item">
                       <div className="testimonial__author">
