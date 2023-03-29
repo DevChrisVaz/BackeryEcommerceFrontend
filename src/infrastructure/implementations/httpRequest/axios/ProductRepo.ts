@@ -15,6 +15,11 @@ class ProductRepo implements IProductRepo {
         return response;
     }
 
+    async getMostVisited(): Promise<Response<Product[]>> {
+        const response = await axios.get(this.url + "most-visited");
+        return response;
+    }
+
     async getOne(id: string): Promise<Response<Product>> {
         const response = await axios.get(this.url + id);
         return response;

@@ -1,11 +1,32 @@
+import GetPublicCommentsUseCase from '@/application/usecases/comment/GetPublicCommentsUseCase';
+import { Comment as CommentComponent } from '@/components/Comment';
 import { Layout } from '@/components/Layout';
+import Comment from '@/domain/entities/Comment';
+import CommentRepo from '@/infrastructure/implementations/httpRequest/axios/CommentRepo';
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 export interface AboutProps { }
 
 const About: React.FC<AboutProps> = () => {
+	const [comments, setComments] = useState<Comment[]>([]);
+
+	const commentRepo = new CommentRepo();
+	const getPublicCommentsUseCase = new GetPublicCommentsUseCase(commentRepo);
+
+	const getPublicComments = async () => {
+		try {
+			const { data, status } = await getPublicCommentsUseCase.run();
+			if(status === 200 && data) setComments(data);
+		} catch(err) {
+
+		}
+	}
+
+	useEffect(() => {
+		getPublicComments();
+	}, []);
+	
 
 	return (
 		<>
@@ -42,7 +63,7 @@ const About: React.FC<AboutProps> = () => {
 						</div>
 						<div className="row">
 							<div className="col-lg-6 col-md-6">
-								<div className="about__text">	
+								<div className="about__text">
 									<div className="section-title">
 										<span>Acerca de Deleite</span>
 										<h2>¡De mi horno a tu mesa!</h2>
@@ -79,154 +100,32 @@ const About: React.FC<AboutProps> = () => {
 						</div>
 					</div>
 				</section>
-				<section className="testimonial spad">
-					<div className="container">
-						<div className="row">
-							<div className="col-lg-12 text-center">
-								<div className="section-title">
-									<span>Opiniones</span>
-									<h2>Nuestros clientes dicen</h2>
+				{
+					comments.length > 0 &&
+					<section className="testimonial spad">
+						<div className="container">
+							<div className="row">
+								<div className="col-lg-12 text-center">
+									<div className="section-title">
+										<span>Opiniones</span>
+										<h2>Nuestros clientes dicen</h2>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div className="row">
-							<div className="testimonial__slider owl-carousel">
-								<div className="col-lg-6">
-									<div className="testimonial__item">
-										<div className="testimonial__author">
-											<div className="testimonial__author__pic">
-												<Image src="/img/testimonial/ta-1.jpg" alt="" width={70} height={70} />
-											</div>
-											<div className="testimonial__author__text">
-												<h5>Kerry D.Silva</h5>
-												<span>New york</span>
-											</div>
-										</div>
-										<div className="rating">
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star-half_alt"></span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-									</div>
-								</div>
-								<div className="col-lg-6">
-									<div className="testimonial__item">
-										<div className="testimonial__author">
-											<div className="testimonial__author__pic">
-												<Image src="/img/testimonial/ta-2.jpg" alt="" width={70} height={70} />
-											</div>
-											<div className="testimonial__author__text">
-												<h5>Kerry D.Silva</h5>
-												<span>New york</span>
-											</div>
-										</div>
-										<div className="rating">
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star-half_alt"></span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-									</div>
-								</div>
-								<div className="col-lg-6">
-									<div className="testimonial__item">
-										<div className="testimonial__author">
-											<div className="testimonial__author__pic">
-												<Image src="/img/testimonial/ta-1.jpg" alt="" width={70} height={70} />
-											</div>
-											<div className="testimonial__author__text">
-												<h5>Ophelia Nunez</h5>
-												<span>London</span>
-											</div>
-										</div>
-										<div className="rating">
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star-half_alt"></span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-									</div>
-								</div>
-								<div className="col-lg-6">
-									<div className="testimonial__item">
-										<div className="testimonial__author">
-											<div className="testimonial__author__pic">
-												<Image src="/img/testimonial/ta-2.jpg" alt="" width={70} height={70} />
-											</div>
-											<div className="testimonial__author__text">
-												<h5>Kerry D.Silva</h5>
-												<span>New york</span>
-											</div>
-										</div>
-										<div className="rating">
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star-half_alt"></span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-									</div>
-								</div>
-								<div className="col-lg-6">
-									<div className="testimonial__item">
-										<div className="testimonial__author">
-											<div className="testimonial__author__pic">
-												<Image src="/img/testimonial/ta-1.jpg" alt="" width={70} height={70} />
-											</div>
-											<div className="testimonial__author__text">
-												<h5>Ophelia Nunez</h5>
-												<span>London</span>
-											</div>
-										</div>
-										<div className="rating">
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star-half_alt"></span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-									</div>
-								</div>
-								<div className="col-lg-6">
-									<div className="testimonial__item">
-										<div className="testimonial__author">
-											<div className="testimonial__author__pic">
-												<Image src="/img/testimonial/ta-2.jpg" alt="" width={70} height={70} />
-											</div>
-											<div className="testimonial__author__text">
-												<h5>Kerry D.Silva</h5>
-												<span>New york</span>
-											</div>
-										</div>
-										<div className="rating">
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star"></span>
-											<span className="icon_star-half_alt"></span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+							<div className="row">
+								<div className="testimonial__slider owl-carousel">
+									<div className="col-lg-6">
+										{
+											comments.map((comment, index) => (
+												<CommentComponent key={index} comment={comment} />
+											))
+										}
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
+					</section>
+				}
 				<section className="team spad">
 					<div className="container">
 						<div className="row">

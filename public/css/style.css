@@ -1886,8 +1886,18 @@ ol {
   line-height: 16px;
 }
 
+.product__details__option a.whatsapp__btn {
+  font-size: 20px;
+  border: 1px solid #e1e1e1;
+  background: #42924B;
+  display: inline-block;
+  color: #fff;
+  padding: 14px;
+  line-height: 16px;
+}
+
 .product__details__option .primary-btn {
-  margin-right: 20px;
+  margin-right: 10px;
   color: #fff;
 }
 
@@ -2165,6 +2175,11 @@ ol {
   right: 0;
   top: 0;
   height: 100%;
+}
+
+.button-primary {
+  background: #573c30;
+  color: #fff;
 }
 
 .cart__total {
@@ -4484,4 +4499,34 @@ ol {
   .checkout__order__products span {
     display: none;
   }
+}
+
+.stars{
+  direction: rtl;/* right to left */
+  unicode-bidi: bidi-override;/* bidi de bidireccional */
+}
+
+.stars > div {
+  display: inline-block;
+}
+
+.stars label {
+  font-size: 32px;
+  color:grey
+}
+
+.stars label:hover{
+  color:orange;
+}
+
+.stars label:hover ~ label{
+  color:orange;
+}
+
+.stars input[type = "radio"] {
+  display: none;
+}
+
+.stars input[type = "radio"]:checked ~ label{
+  color:orange;
 }

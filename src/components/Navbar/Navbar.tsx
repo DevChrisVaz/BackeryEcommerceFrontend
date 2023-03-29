@@ -54,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = () => {
 								<div className="header__top__right">
 									<div className="header__top__right__links">
 										{/* <a href="#" className="search-switch"><img src="img/icon/search.png" alt="" /></a> */}
-										<Link href="/wish-list"><Image src="/img/icon/heart.png" alt="" width={26} height={23} /></Link>
+										{/* <Link href="/wish-list"><Image src="/img/icon/heart.png" alt="" width={26} height={23} /></Link> */}
 									</div>
 									<div className="header__top__right__cart">
 										<Link href="/cart"><Image src="/img/icon/cart.png" alt="" width={23} height={27} /> <span>{totalItems}</span></Link>

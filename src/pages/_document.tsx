@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="es">
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -25,6 +25,7 @@ export default function Document() {
         <script src="js/jquery.nicescroll.min.js" async></script>
         <script src="js/owl.carousel.min.js" async></script>
         <script src="js/bootstrap.min.js" async></script>
+        <script src="https://www.tiktok.com/embed.js" defer />
       </Head>
       <body>
         <Main />

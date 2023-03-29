@@ -4,6 +4,7 @@ import { Layout } from '@/components/Layout';
 import { ProductPreview } from '@/components/ProductPreview';
 import Category from '@/domain/entities/Category';
 import Product from '@/domain/entities/Product';
+import CategoryRepo from '@/infrastructure/implementations/httpRequest/axios/CategoryRepo';
 import ProductRepo from '@/infrastructure/implementations/httpRequest/axios/ProductRepo';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -17,8 +18,9 @@ const Shop: React.FC<ShopProps> = () => {
     const [loading, setLoading] = useState<boolean>(false);
 
     const productRepo = new ProductRepo();
+    const categoryRepo = new CategoryRepo();
     const getAllProductsUseCase = new GetAllProductsUseCase(productRepo);  
-    const getAllCategoriesUseCase = new GetAllCategoriesUseCase(productRepo);  
+    const getAllCategoriesUseCase = new GetAllCategoriesUseCase(categoryRepo);  
 
     const getAllProducts = async () => {
         try {
@@ -83,6 +85,7 @@ const Shop: React.FC<ShopProps> = () => {
                                     <div className="shop__option__search">
                                         <form action="#">
                                             <select>
+                                                <option selected>Categorías</option>
                                                 {
                                                     categories.length > 0 && categories.map((category, index) => {
                                                         return (
@@ -94,7 +97,7 @@ const Shop: React.FC<ShopProps> = () => {
                                                 <option value="">Cup Cake</option>
                                                 <option value="">Biscuit</option> */}
                                             </select>
-                                            <input type="text" placeholder="Search" />
+                                            <input type="text" placeholder="Buscar" />
                                             <button type="submit"><i className="fa fa-search"></i></button>
                                         </form>
                                     </div>

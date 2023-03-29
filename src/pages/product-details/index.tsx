@@ -127,10 +127,12 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 									<div className="product__label">{product?.categoryRef.name}</div>
 									<h4>{product?.name}</h4>
 									<h5>{numeral(product?.price).format("$0,0.00")}</h5>
-									<p>{product?.description}</p>
+									<p style={{ height: "8rem", overflow: "hidden" }}>{product?.description}</p>
 									<ul>
-										<li>SKU: <span>17</span></li>
-										<li>Category: <span>Biscuit cake</span></li>
+										{/* <li style={{ visibility: "hidden" }}>SKU: <span>17</span></li>
+										<li style={{ visibility: "hidden" }}>Category: <span>Biscuit cake</span></li>
+										<li style={{ visibility: "hidden" }}>Category: <span>Biscuit cake</span></li>
+										<li style={{ visibility: "hidden" }}>Category: <span>Biscuit cake</span></li> */}
 										<li>
 											Tags: <span>{
 												product?.tagsRef && product?.tagsRef.length > 0 && product?.tagsRef.map((tag, index) => {
@@ -147,10 +149,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 												<>
 													<div className="quantity">
 														<div className="pro-qty">
-															<span 
-																className="dec qtybtn" 
+															<span
+																className="dec qtybtn"
 																onClick={cart.find(i => i.product.uuid === product?.uuid)?.qty === 1 ? handleRemoveFromCart : handleDecreaseQty}
-															>{cart.find(i => i.product.uuid === product?.uuid)?.qty === 1 ? <i className="bi bi-trash" style={{ fontSize: "12px" }} /> : "-" }</span>
+															>{cart.find(i => i.product.uuid === product?.uuid)?.qty === 1 ? <i className="bi bi-trash" style={{ fontSize: "12px" }} /> : "-"}</span>
 															<input type="text" value={cart.find(i => i.product.uuid === product?.uuid)?.qty} />
 															<span className="inc qtybtn" onClick={handleIncreaseQty}>+</span>
 														</div>
@@ -158,12 +160,13 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 													<a onClick={handleRemoveFromCart} className="danger-btn" style={{ cursor: "pointer" }}>Quitar del carrito</a>
 												</>
 										}
-										{/* <a href="#" className="heart__btn"><span className="icon_heart_alt"></span></a> */}
+										<a href={`https://wa.me/+529993893779?text=${encodeURIComponent("Me interesa el producto " + product?.name + ". ¿Me podría proporcionar una cotización? " + window.location.href)}`} target="_blank" className="whatsapp__btn"><i className="bi bi-whatsapp" /></a>
+										{/* https://wa.me/?text=urlencodedtext */}
 									</div>
 								</div>
 							</div>
 						</div>
-						<div className="product__details__tab">
+						{/* <div className="product__details__tab">
 							<div className="col-lg-12">
 								<ul className="nav nav-tabs" role="tablist">
 									<li className="nav-item">
@@ -211,7 +214,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</section>
 				<section className="related-products spad">

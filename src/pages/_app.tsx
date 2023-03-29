@@ -15,6 +15,12 @@ function App({ Component, pageProps }: AppProps) {
     setLoading(false);
 	});
 
+  useEffect(() => {
+		const modalScript = document.createElement("script");
+		modalScript.src = "js/comment.modal.js";
+		document.body.appendChild(modalScript);
+	}, []);
+
   return loading ? <>Loading...</> : <Component {...pageProps} />
 }
 
