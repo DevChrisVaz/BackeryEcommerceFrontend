@@ -378,8 +378,8 @@ export default function Home() {
                 <div className="testimonial__slider owl-carousel">
                   {
                     comments.map((comment, index) => (
-                      <div className="col-lg-6">
-                        <CommentComponent key={index} comment={comment} />
+                      <div className="col-lg-6" key={index}>
+                        <CommentComponent comment={comment} />
                       </div>
                     ))
                   }
