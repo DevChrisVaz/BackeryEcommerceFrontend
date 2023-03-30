@@ -1,5 +1,5 @@
 import ProductFilters from "@/domain/entities/ProductFilters";
-import ProductsWithTotal from "@/domain/entities/productsWithTotal";
+import ProductsWithTotal from "@/domain/entities/ProductsWithTotal";
 import Response from "@/domain/entities/Response";
 import IProductRepo from "@/domain/repositories/IProductRepo";
 
