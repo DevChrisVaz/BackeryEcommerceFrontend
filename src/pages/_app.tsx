@@ -11,7 +11,7 @@ function App({ Component, pageProps }: AppProps) {
 		mainScript.src = "js/main.js";
 		setTimeout(() => {
       document.body.appendChild(mainScript);
-    }, 2000);
+    }, 5000);
     setLoading(false);
 	});
 

@@ -135,7 +135,7 @@ const About: React.FC<AboutProps> = () => {
 									<h2>Dulces pasteleros </h2>
 								</div>
 							</div>
-							<div className="col-lg-5 col-md-5 col-sm-5">
+							<div style={{ visibility: "hidden" }} className="col-lg-5 col-md-5 col-sm-5">
 								<div className="team__btn">
 									<a href="#" className="primary-btn">Únete al equipo</a>
 								</div>
