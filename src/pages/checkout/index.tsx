@@ -1,10 +1,10 @@
 import { Layout } from '@/components/Layout';
-import { selectCartState } from '@/features/slices/cartSlice';
+import { clearCart, selectCartState } from '@/features/slices/cartSlice';
 import Head from 'next/head';
 import Link from 'next/link';
 import numeral from 'numeral';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from "formik";
 import Quote from '@/domain/entities/Quote';
 import QuoteErrors from '@/domain/entities/errors/QuoteErrors';
@@ -34,6 +34,7 @@ const Checkout: React.FC<CheckoutProps> = () => {
 
 	const router = useRouter();
 	const cartState = useSelector(selectCartState);
+	const dispatch = useDispatch();
 
 	const quoteRepo = new QuoteRepo();
 	const quoteValidationsRepo = new QuoteValidationsRepo();
@@ -49,6 +50,7 @@ const Checkout: React.FC<CheckoutProps> = () => {
 				// });
 				// showResponseToast();
 				// navigate(-1);
+				dispatch(clearCart());
 				router.push("/");
 			}
 		} catch(err: any) {

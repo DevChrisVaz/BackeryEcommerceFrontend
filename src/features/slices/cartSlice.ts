@@ -46,6 +46,9 @@ export const cartSlice = createSlice({
                 }
                 return p;
             });
+        },
+        clearCart(state) {
+            state.products = [];
         }
     },
     extraReducers: {
@@ -58,7 +61,7 @@ export const cartSlice = createSlice({
     }
 });
 
-export const { addItem, removeItem, increaseProductQty, decreaseProductQty } = cartSlice.actions;
+export const { addItem, removeItem, increaseProductQty, decreaseProductQty, clearCart } = cartSlice.actions;
 
 export const selectCartState = (state: AppState) => state.cart.products;
 
