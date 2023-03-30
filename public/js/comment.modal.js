@@ -3,7 +3,7 @@
 (function ($) {
     setTimeout(() => {
         $('#commentModal').modal("show");
-    }, 5000);
+    }, 30000);
 
     $("#open-second-modal").on("click", function() {
         $("#commentModal").modal("hide");
