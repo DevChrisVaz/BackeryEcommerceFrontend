@@ -26,7 +26,7 @@ const Footer: React.FC<FooterProps> = () => {
 							<p>¡De mi horno a tu mesa!</p>
 							<div className="footer__social">
 								<a href="https://www.facebook.com/deleitemerida/" target="_blank"><i className="fa fa-facebook"></i></a>
-								<a href="https://wa.me/9993893779" target="_blank"><i className="fa fa-whatsapp"></i></a>
+								<a href="https://wa.me/529993893779" target="_blank"><i className="fa fa-whatsapp"></i></a>
 								<a href="https://www.instagram.com/deleitelzt/" target="_blank"><i className="fa fa-instagram"></i></a>
 								<a href="https://www.tiktok.com/@lillianzapientorr" target="_blank"><i className="bi bi-tiktok"></i></a>
 							</div>

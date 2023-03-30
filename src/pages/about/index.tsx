@@ -148,10 +148,10 @@ const About: React.FC<AboutProps> = () => {
 										<h6>Lilian Zapien</h6>
 										<span>Pastelera</span>
 										<div className="team__item__social">
-											<a href="#"><i className="fa fa-facebook"></i></a>
-											<a href="#"><i className="fa fa-twitter"></i></a>
-											<a href="#"><i className="fa fa-instagram"></i></a>
-											<a href="#"><i className="fa fa-youtube-play"></i></a>
+											<a href="https://www.facebook.com/deleitemerida/"><i className="fa fa-facebook"></i></a>
+											<a href="https://wa.me/529993893779"><i className="fa fa-whatsapp"></i></a>
+											<a href="https://www.instagram.com/deleitelzt/"><i className="fa fa-instagram"></i></a>
+											<a href="https://www.tiktok.com/@lillianzapientorr"><i className="bi bi-tiktok"></i></a>
 										</div>
 									</div>
 								</div>
