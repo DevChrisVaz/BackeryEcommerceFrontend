@@ -17,14 +17,14 @@ export default function Document() {
         <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css" />
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
         <link rel="stylesheet" href="css/style.css" type="text/css" />
-        <script src="js/jquery-3.3.1.min.js" async></script>
-        <script src="js/jquery.nice-select.min.js" async></script>
-        <script src="js/jquery.barfiller.js" async></script>
-        <script src="js/jquery.magnific-popup.min.js" async></script>
-        <script src="js/jquery.slicknav.js" async></script>
-        <script src="js/jquery.nicescroll.min.js" async></script>
-        <script src="js/owl.carousel.min.js" async></script>
-        <script src="js/bootstrap.min.js" async></script>
+        <script src="js/jquery-3.3.1.min.js" defer></script>
+        <script src="js/jquery.nice-select.min.js" defer></script>
+        <script src="js/jquery.barfiller.js" defer></script>
+        <script src="js/jquery.magnific-popup.min.js" defer></script>
+        <script src="js/jquery.slicknav.js" defer></script>
+        <script src="js/jquery.nicescroll.min.js" defer></script>
+        <script src="js/owl.carousel.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
         <script src="https://www.tiktok.com/embed.js" defer />
       </Head>
       <body>
