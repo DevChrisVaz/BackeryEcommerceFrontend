@@ -1,5 +1,5 @@
 import ProductFilters from "@/domain/entities/ProductFilters";
-import ProductsWithTotal from "@/domain/entities/productsWithTotal";
+import ProductsWithTotal from "@/domain/entities/ProductsWithTotal";
 import axios from "axios";
 import Product from "../../../../domain/entities/Product";
 import Response from "../../../../domain/entities/Response";

@@ -1,6 +1,6 @@
 import Product from "../entities/Product";
 import ProductFilters from "../entities/ProductFilters";
-import ProductsWithTotal from "../entities/productsWithTotal";
+import ProductsWithTotal from "../entities/ProductsWithTotal";
 import Response from "../entities/Response";
 
 interface IProductRepo {
