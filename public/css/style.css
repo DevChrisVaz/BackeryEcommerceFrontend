@@ -1736,8 +1736,8 @@ ol {
   top: 2px;
 }
 
-.shop__pagination a:hover {
-  background: #000000;
+.shop__pagination a:hover, .shop__pagination a.selected {
+  background: #573c30;
   color: #ffffff;
 }
 

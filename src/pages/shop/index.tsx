@@ -12,6 +12,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { Hearts } from "react-loader-spinner";
 
 export interface ShopProps { };
 
@@ -69,18 +70,8 @@ const Shop: React.FC<ShopProps> = () => {
 
     useEffect(() => {
         if (totalProducts > 0) {
-            setPageButtons(Array.from({ length: Math.ceil(totalProducts / 12) }, (_, i) => (
-                <a key={i}
-                    onClick={() => {
-                        router.push({
-                            pathname: router.pathname,
-                            query: {
-                                page: i + 1
-                            }
-                        })
-                    }}
-                >{i + 1}</a>
-            )))
+            setPageButtons(Array.from({ length: Math.ceil(totalProducts / 12) }, (_, i) => i + 1));
+            // setPageButtons()
         }
     }, [totalProducts]);
 
@@ -182,22 +173,45 @@ const Shop: React.FC<ShopProps> = () => {
                             </div>
                         </div>
                         {
-                            !loading &&
-                            <div className="row">
-                                {
-                                    products.length > 0 ?
-                                        products.map((product, index) => (
-                                            <ProductPreview key={index} product={product} />
-                                        )) :
-                                        <span>No se encontraron productos</span>
-                                }
-                            </div>
+                            loading ?
+                                <div className="w-100 d-flex justify-content-center">
+                                    <Hearts
+                                        height={120}
+                                        width={120}
+                                        color="#573c30"
+                                        ariaLabel="hearts-loading"
+                                        visible={true}
+                                    />
+                                </div>
+                                :
+                                <div className="row">
+                                    {
+                                        products.length > 0 ?
+                                            products.map((product, index) => (
+                                                <ProductPreview key={index} product={product} />
+                                            )) :
+                                            <span>No se encontraron productos</span>
+                                    }
+                                </div>
                         }
                         <div className="shop__last__option">
                             <div className="row">
                                 <div className="col-lg-6 col-md-6 col-sm-6">
                                     <div className="shop__pagination">
-                                        {pageButtons}
+                                        {pageButtons.map((num: number, index: number) => (
+                                            <a key={index}
+                                                onClick={() => {
+                                                    router.push({
+                                                        pathname: router.pathname,
+                                                        query: {
+                                                            page: num
+                                                        }
+                                                    })
+                                                }}
+                                                className={num === currentPage ? "selected" : ""}
+                                                style={{ cursor: "pointer" }}
+                                            >{num}</a>
+                                        ))}
                                         {
                                             pageButtons.length + 1 !== currentPage &&
                                             <a onClick={() => setCurrentPage(currentPage + 1)}><span className="arrow_carrot-right" /></a>
@@ -206,7 +220,7 @@ const Shop: React.FC<ShopProps> = () => {
                                 </div>
                                 <div className="col-lg-6 col-md-6 col-sm-6">
                                     <div className="shop__last__text">
-                                        <p>Mostrando 1-12 de {totalProducts} resultados</p>
+                                        <p>Mostrando {currentPage === 1 ? currentPage : 12 * (currentPage - 1) + 1}-{(12 * currentPage) > totalProducts ? totalProducts : (12 * currentPage)} de {totalProducts} resultados</p>
                                     </div>
                                 </div>
                             </div>
