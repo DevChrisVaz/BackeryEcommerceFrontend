@@ -1,13 +1,16 @@
 import GetAllCategoriesUseCase from '@/application/usecases/category/GetAllCategoriesUseCase';
-import GetAllProductsUseCase from '@/application/usecases/product/GetAllProductsUseCase';
+import GetManyProductsUseCase from '@/application/usecases/product/GetManyProductsUseCase';
 import { Layout } from '@/components/Layout';
 import { ProductPreview } from '@/components/ProductPreview';
 import Category from '@/domain/entities/Category';
 import Product from '@/domain/entities/Product';
+import ProductFilters from '@/domain/entities/ProductFilters';
 import CategoryRepo from '@/infrastructure/implementations/httpRequest/axios/CategoryRepo';
 import ProductRepo from '@/infrastructure/implementations/httpRequest/axios/ProductRepo';
+import { Formik } from 'formik';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 export interface ShopProps { };
@@ -16,23 +19,35 @@ const Shop: React.FC<ShopProps> = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
+    const [totalProducts, setTotalProducts] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pageButtons, setPageButtons] = useState<any>([]);
+    const [currentFilter, setCurrentFilter] = useState<ProductFilters>({});
+    const [initialValues, setInitialValues] = useState<ProductFilters>({
+        category: "",
+        searchBy: ""
+    });
+
+    const router = useRouter();
+    const { page } = router.query;
 
     const productRepo = new ProductRepo();
     const categoryRepo = new CategoryRepo();
-    const getAllProductsUseCase = new GetAllProductsUseCase(productRepo);  
-    const getAllCategoriesUseCase = new GetAllCategoriesUseCase(categoryRepo);  
+    const getManyProductsUseCase = new GetManyProductsUseCase(productRepo);
+    const getAllCategoriesUseCase = new GetAllCategoriesUseCase(categoryRepo);
 
-    const getAllProducts = async () => {
+    const getFilteredProducts = async (filter: ProductFilters) => {
         try {
             setLoading(true);
-            const { data, status } = await getAllProductsUseCase.run();
+            const { data, status } = await getManyProductsUseCase.run(filter);
             if (status === 200 && data) {
-                setProducts(data);
+                setCurrentFilter(filter);
+                setProducts(data.products);
+                setTotalProducts(data.total);
             }
             setLoading(false);
-        } catch (error) {
-            console.log(error);
-            setLoading(false);
+        } catch (err) {
+
         }
     }
 
@@ -42,110 +57,163 @@ const Shop: React.FC<ShopProps> = () => {
             if (status === 200 && data) {
                 setCategories(data);
             }
-        } catch(error) {
+        } catch (error) {
             console.log(error);
         }
     }
 
     useEffect(() => {
-        getAllProducts();
+        getFilteredProducts(currentFilter);
         getAllCategories();
     }, []);
 
+    useEffect(() => {
+        if (totalProducts > 0) {
+            setPageButtons(Array.from({ length: Math.ceil(totalProducts / 12) }, (_, i) => (
+                <a key={i}
+                    onClick={() => {
+                        router.push({
+                            pathname: router.pathname,
+                            query: {
+                                page: i + 1
+                            }
+                        })
+                    }}
+                >{i + 1}</a>
+            )))
+        }
+    }, [totalProducts]);
+
+    useEffect(() => {
+        let temp: number;
+        temp = page ? (Array.isArray(page) ? parseInt(page[0]) : parseInt(page)) : 0;
+        setCurrentPage(temp);
+    }, [page]);
+
+    useEffect(() => {
+        const filter: ProductFilters = {
+            ...currentFilter,
+            page: currentPage
+        }
+        getFilteredProducts(filter);
+    }, [currentPage]);
+
     return (
         <>
-        <Head>
-            <title>Tienda</title>
-        </Head>
-        <Layout>
-            <div className="breadcrumb-option">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 col-md-6 col-sm-6">
-                            <div className="breadcrumb__text">
-                                <h2>Tienda</h2>
+            <Head>
+                <title>Tienda</title>
+            </Head>
+            <Layout>
+                <div className="breadcrumb-option">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-6 col-md-6 col-sm-6">
+                                <div className="breadcrumb__text">
+                                    <h2>Tienda</h2>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-sm-6">
-                            <div className="breadcrumb__links">
-                                <Link href="/">Home</Link>
-                                <span>Shop</span>
+                            <div className="col-lg-6 col-md-6 col-sm-6">
+                                <div className="breadcrumb__links">
+                                    <Link href="/">Inicio</Link>
+                                    <span>Tienda</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {
-                !loading &&
                 <section className="shop spad">
                     <div className="container">
                         <div className="shop__option">
                             <div className="row">
-                                <div className="col-lg-7 col-md-7">
+                                <div className="col-lg-8 col-md-8">
                                     <div className="shop__option__search">
-                                        <form action="#">
+                                        <Formik
+                                            initialValues={initialValues}
+                                            onSubmit={getFilteredProducts}
+                                        >
+                                            {({
+                                                values,
+                                                handleChange,
+                                                handleBlur,
+                                                handleSubmit
+                                            }) => (
+                                                <form onSubmit={handleSubmit}>
+                                                    <select
+                                                        id="category"
+                                                        name="category"
+                                                        value={values.category}
+                                                        onChange={handleChange}
+                                                        onBlur={handleBlur}
+                                                    >
+                                                        <option value="">Categorías</option>
+                                                        {
+                                                            categories.length > 0 && categories.map((category, index) => {
+                                                                return (
+                                                                    <option key={index} value={category.uuid}>{category.name}</option>
+                                                                )
+                                                            })
+                                                        }
+                                                    </select>
+                                                    <input
+                                                        type="text"
+                                                        placeholder="Buscar"
+                                                        name="searchBy"
+                                                        value={values.searchBy}
+                                                        onChange={handleChange}
+                                                    />
+                                                    <button type="submit"><i className="fa fa-search"></i></button>
+                                                </form>
+                                            )}
+                                        </Formik>
+                                    </div>
+                                </div>
+                                {/* <div className="col-lg-5 col-md-5">
+                                        <div className="shop__option__right">
                                             <select>
-                                                <option selected>Categorías</option>
-                                                {
-                                                    categories.length > 0 && categories.map((category, index) => {
-                                                        return (
-                                                            <option key={index} value={category.uuid}>{category.name}</option>
-                                                        )
-                                                    })
-                                                }
-                                                {/* <option value="">Red Velvet</option>
-                                                <option value="">Cup Cake</option>
-                                                <option value="">Biscuit</option> */}
+                                                <option value="">Default sorting</option>
+                                                <option value="">A to Z</option>
+                                                <option value="">1 - 8</option>
+                                                <option value="">Name</option>
                                             </select>
-                                            <input type="text" placeholder="Buscar" />
-                                            <button type="submit"><i className="fa fa-search"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div className="col-lg-5 col-md-5">
-                                    <div className="shop__option__right">
-                                        <select>
-                                            <option value="">Default sorting</option>
-                                            <option value="">A to Z</option>
-                                            <option value="">1 - 8</option>
-                                            <option value="">Name</option>
-                                        </select>
-                                        <a href="#"><i className="fa fa-list"></i></a>
-                                        <a href="#"><i className="fa fa-reorder"></i></a>
-                                    </div>
-                                </div>
+                                            <a href="#"><i className="fa fa-list"></i></a>
+                                            <a href="#"><i className="fa fa-reorder"></i></a>
+                                        </div>
+                                    </div> */}
                             </div>
                         </div>
-                        <div className="row">
-                            { 
-                                products.length > 0 ? 
-                                products.map((product, index) => (
-                                    <ProductPreview key={index} product={product} />
-                                )) : 
-                                <span>No se encontraron productos</span>
-                            }
-                        </div>
+                        {
+                            !loading &&
+                            <div className="row">
+                                {
+                                    products.length > 0 ?
+                                        products.map((product, index) => (
+                                            <ProductPreview key={index} product={product} />
+                                        )) :
+                                        <span>No se encontraron productos</span>
+                                }
+                            </div>
+                        }
                         <div className="shop__last__option">
                             <div className="row">
                                 <div className="col-lg-6 col-md-6 col-sm-6">
                                     <div className="shop__pagination">
-                                        <a href="#">1</a>
-                                        <a href="#">2</a>
-                                        <a href="#">3</a>
-                                        <a href="#"><span className="arrow_carrot-right"></span></a>
+                                        {pageButtons}
+                                        {
+                                            pageButtons.length + 1 !== currentPage &&
+                                            <a onClick={() => setCurrentPage(currentPage + 1)}><span className="arrow_carrot-right" /></a>
+                                        }
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-md-6 col-sm-6">
                                     <div className="shop__last__text">
-                                        <p>Mostrando 1-12 de 12 resultados</p>
+                                        <p>Mostrando 1-12 de {totalProducts} resultados</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-            }
-        </Layout>
+            </Layout>
         </>
     );
 }

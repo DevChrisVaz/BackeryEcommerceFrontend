@@ -1,3 +1,5 @@
+import ProductFilters from "@/domain/entities/ProductFilters";
+import ProductsWithTotal from "@/domain/entities/productsWithTotal";
 import axios from "axios";
 import Product from "../../../../domain/entities/Product";
 import Response from "../../../../domain/entities/Response";
@@ -6,12 +8,23 @@ import IProductRepo from "../../../../domain/repositories/IProductRepo";
 class ProductRepo implements IProductRepo {
     private readonly url: string;
 
-    constructor(){ 
+        constructor(){ 
         this.url = process.env.NEXT_PUBLIC_API_URL + "products/";
     }
 
     async getAll(): Promise<Response<Product[]>> {
         const response = await axios.get(this.url);
+        return response;
+    }
+
+    async getMany(filter: ProductFilters): Promise<Response<ProductsWithTotal>> {
+        const response = await axios.get<ProductsWithTotal>(this.url + "/many", {
+            params: {
+                category: filter.category,
+                searchBy: encodeURIComponent(filter.searchBy ?? ""),
+                page: filter.page
+            }
+        });
         return response;
     }
 

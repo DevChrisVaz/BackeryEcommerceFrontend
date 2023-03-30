@@ -75,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = () => {
 								{/* <li className="active"><Link href="/">Home</Link></li> */}
 								<li><Link href="/">Inicio</Link></li>
 								<li><Link href="/about">Cónocenos</Link></li>
-								<li><Link href="/shop">Tienda</Link></li>
+								<li><Link href="/shop?page=1">Tienda</Link></li>
 								{/* <li><Link href="#">Pages</Link>
 									<ul className="dropdown">
 										<li><Link href="./shop-details.html">Shop Details</Link></li>

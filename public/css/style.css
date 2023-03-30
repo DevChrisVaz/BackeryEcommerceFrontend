@@ -1584,7 +1584,7 @@ ol {
   border: none;
   background: transparent;
   display: inline-block;
-  width: 25%;
+  width: 35%;
   height: 44px;
   line-height: 44px;
   padding-left: 30px;
@@ -1622,7 +1622,7 @@ ol {
 }
 
 .shop__option__search form input {
-  width: 75%;
+  width: 65%;
   height: 100%;
   border: none;
   font-size: 16px;

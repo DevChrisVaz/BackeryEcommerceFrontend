@@ -242,7 +242,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 							<div className="row">
 								<div className="col-lg-12 text-center">
 									<div className="section-title">
-										<h2>Related Products</h2>
+										<h2>Productos relacionados</h2>
 									</div>
 								</div>
 							</div>
