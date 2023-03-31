@@ -12,7 +12,7 @@ function App({ Component, pageProps }: AppProps) {
     mainScript.src = "js/main.js";
     setTimeout(() => {
       document.body.appendChild(mainScript);
-    }, 5000);
+    }, 2000);
     setLoading(false);
   });
 
@@ -23,7 +23,7 @@ function App({ Component, pageProps }: AppProps) {
   }, []);
 
   return loading ?
-    <div className="container-fluid h-100 d-flex justify-content-center align-items-center">
+    <div style={{ minWidth: "100vww", minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
       <Hearts
         height={120}
         width={120}
